@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Buffer y selección de entidades</title>
+    <script>
+      var dojoConfig = {
+        async: true
+      };
+    </script>
+    
+    <link rel="stylesheet" href="http://js.arcgis.com/3.39/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.39/esri/css/esri.css">
+    <script src="http://js.arcgis.com/3.39/"></script>
+    <script src="index.js"></script>
+    <style>
+      html, body, #divMap {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="padding: 20px">
+      <br>
+      <input type="text" id="place" value="Avenida Baviera Madrid"> 
+      <!-- avenida rafael alberti 19 madrid -->
+      <br>
+      <input type="number" id="distance" value="100">
+      <br>
+      <button id="locate">Buscar</button>
+    </div>
+    <div id="divMap"></div>
+  </body>
+</html>
