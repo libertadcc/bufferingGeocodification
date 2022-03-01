@@ -71,23 +71,28 @@ require([
                 }
             };
 
-            function createBuffer(evt) {
+            function createBuffer(geometryLocation) {
+                // Simbología del circulo gris - Linea externa
                 var lineCircle = new SimpleLineSymbol();
                 lineCircle.setWidth(2.75);
                 lineCircle.setStyle(SimpleLineSymbol.STYLE_DASHDOTDOT);
                 lineCircle.setColor(new Color([26, 26, 26, 1]));
-
+                // Simbología del circulo gris 
                 var circleSymbol = new SimpleFillSymbol();
                 circleSymbol.setOutline(lineCircle);
 
                 const distance = dom.byId('distance').value;
                 circlebuffer = new Circle({
-                    center: {
-                        x: evt.x,
-                        y: evt.y,
-                        spatialReference: evt.spatialReference
-                    },
-                    geodesic: true,
+                    // Option 1
+                    // center: {
+                    //     x: geometryLocation.x,
+                    //     y: geometryLocation.y,
+                    //     spatialReference: geometryLocation.spatialReference
+                    // },
+                    // Option 2
+                    center: geometryLocation,
+                    
+                    geodesic: true, // geodesic: false - Sino sale ovalado
                     radius: distance,
                     radiusUnit: "esriMeters"
                 });
